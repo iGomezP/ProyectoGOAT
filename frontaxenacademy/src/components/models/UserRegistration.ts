@@ -1,7 +1,7 @@
 interface UserRegistration {
-    user: string,
+    nickname: string,
     email: string,
-    pwd: string,
+    password: string,
     pwd_check: string,
 };
 export default UserRegistration;

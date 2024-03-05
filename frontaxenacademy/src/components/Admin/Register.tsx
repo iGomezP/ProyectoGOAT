@@ -6,9 +6,9 @@ import UserRegistration from "../models/UserRegistration";
 import userServices from "../services/user.service";
 const Register = () => {
     const initialValues: UserRegistration = {
-        user:'',
+        nickname:'',
         email:'',
-        pwd: '',
+        password: '',
         pwd_check: '',
     };
     const onSubmit = async (data: UserRegistration) => {
@@ -26,9 +26,9 @@ const Register = () => {
     } = useFormik({
         initialValues,
         validationSchema:Yup.object({
-            user: Yup.string().required("Este campo es requerido."),
+            nickname: Yup.string().required("Este campo es requerido."),
             email: Yup.string().email().required('Seleccione un email valido.'),
-            pwd: Yup.string().required('Este campo es requerido.'),
+            password: Yup.string().required('Este campo es requerido.'),
             pwd_check: Yup.string().oneOf([Yup.ref('pwd')], 'Las contraseñas deben coincidir').required('Este campo es requerido'),
         }),
         onSubmit,
@@ -51,11 +51,11 @@ const Register = () => {
                 <Typography variant="h1" component="h2">Crear una cuenta</Typography>
                 <Typography>Tu usuario:</Typography>
                 <TextField id="outlined-basic" label="Alumna/o" variant="outlined" 
-                    name="user"
-                    value={values.user}
+                    name="nickname"
+                    value={values.nickname}
                     onChange={handleChange}
-                    helperText={errors.user}
-                    error={!!errors.user}
+                    helperText={errors.nickname}
+                    error={!!errors.nickname}
                 />
                 <Typography>E-mail:</Typography>
                 <TextField id="outlined-basic" label="ejemplo@mail.com" variant="outlined" 
@@ -67,11 +67,11 @@ const Register = () => {
                 />
                 <Typography>Contraseña:</Typography>
                 <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password"
-                    name="pwd"
-                    value={values.pwd}
+                    name="password"
+                    value={values.password}
                     onChange={handleChange}
-                    helperText={errors.pwd}
-                    error={!!errors.pwd}
+                    helperText={errors.password}
+                    error={!!errors.password}
                 />
                 <Typography>Vuelva a escribir la contraseña:</Typography>
                 <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password"
