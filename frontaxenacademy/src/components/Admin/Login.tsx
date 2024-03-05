@@ -22,7 +22,6 @@ const Login = () => {
     const {
     handleSubmit,
     handleChange,
-    validateForm,
     errors,
     values,
     } = useFormik({
