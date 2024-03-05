@@ -75,15 +75,7 @@ const Login = () => {
                     error={!!errors.pwd}
                 />
                 <Button
-                onClick={()=>{
-                    validateForm().then( (e) => {
-                        if(Object.keys(e).length === 0){
-                            console.log(e,'No hay errores');
-                        }else{
-                            console.log(e)
-                        }
-                    });
-                }}
+                    type="submit"
                 >Iniciar sesion</Button>
             </Paper>
             </Box>
