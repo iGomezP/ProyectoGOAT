@@ -1,6 +1,7 @@
 import axios from "axios";
 import ResultObject from "../models/ResultObject";
 import User from "../models/User";
+import UserRegistration from "../models/UserRegistration";
 let axiosConfig = {
     headers: {
         "Content-Type":"application/json",
@@ -11,8 +12,13 @@ const login = async (request: User) : Promise<ResultObject> => {
     const response = await axios.post<ResultObject>(``,request,axiosConfig);
     return response.data;
 };
-
-const loginServices = {
-    login,
+const register = async (request: UserRegistration) : Promise<ResultObject> => {
+    const response = await axios.post<ResultObject>(``,request,axiosConfig);
+    return response.data;
 };
-export default loginServices;
+
+const userServices = {
+    login,
+    register,
+};
+export default userServices;

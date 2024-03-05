@@ -2,21 +2,20 @@ import React from "react";
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import {useFormik} from "formik";
 import * as Yup from "yup";
-import User from "../models/User";
+import UserRegistration from "../models/UserRegistration";
 import userServices from "../services/user.service";
-
-const Login = () => {
-    const initialValues: User = {
+const Register = () => {
+    const initialValues: UserRegistration = {
         user:'',
         email:'',
         pwd: '',
+        pwd_check: '',
     };
-    const onSubmit = async (data: User) => {
+    const onSubmit = async (data: UserRegistration) => {
         //do something...
         console.log(data);
         if(data){
-            
-            //await userServices.login(data);
+            //await userServices.register(data);
         }
     };
     const {
@@ -30,6 +29,7 @@ const Login = () => {
             user: Yup.string().required("Este campo es requerido."),
             email: Yup.string().email().required('Seleccione un email valido.'),
             pwd: Yup.string().required('Este campo es requerido.'),
+            pwd_check: Yup.string().oneOf([Yup.ref('pwd')], 'Las contraseñas deben coincidir').required('Este campo es requerido'),
         }),
         onSubmit,
     });
@@ -48,8 +48,8 @@ const Login = () => {
                 component="form"
                 onSubmit={handleSubmit}
             >
-                <Typography variant="h1" component="h2">Bienvenido</Typography>
-                <Typography>Usuario:</Typography>
+                <Typography variant="h1" component="h2">Crear una cuenta</Typography>
+                <Typography>Tu usuario:</Typography>
                 <TextField id="outlined-basic" label="Alumna/o" variant="outlined" 
                     name="user"
                     value={values.user}
@@ -73,13 +73,20 @@ const Login = () => {
                     helperText={errors.pwd}
                     error={!!errors.pwd}
                 />
+                <Typography>Vuelva a escribir la contraseña:</Typography>
+                <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password"
+                    name="pwd_check"
+                    value={values.pwd_check}
+                    onChange={handleChange}
+                    helperText={errors.pwd_check}
+                    error={!!errors.pwd_check}
+                />
                 <Button
                     type="submit"
-                >Iniciar sesion</Button>
+                >Crear tu cuenta</Button>
             </Paper>
             </Box>
         </>
-    )
-}
-
-export default Login;
+    );
+};
+export default Register;
