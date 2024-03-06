@@ -6,7 +6,6 @@ import {
 import {
   ColorGray,
   ColorGrayDisabled,
-  ColorPink,
   ColorPureBlack,
   ColorPureWhite
 } from "../Theme";
@@ -29,11 +28,11 @@ const CustomContainedTextField = styled((props: MuiTextFieldProps) => (
       borderColor: "1px solid " + ColorGray,
     },
     "&:hover fieldset": {
-      border: ColorPink,
+      border: ColorPureBlack,
       borderStyle: "solid",
     },
     "&.Mui-focused fieldset": {
-      border: ColorPureBlack,
+      border: ColorGray,
       borderStyle: "solid",
     },
     "&.Mui-disabled fieldset": {

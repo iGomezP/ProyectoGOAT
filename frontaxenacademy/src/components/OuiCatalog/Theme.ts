@@ -34,3 +34,25 @@ export const ColorSuccess: string = "#00CC67";
 export const ColorSuccessLight: string = "#E5FFF2";
 
 export const FontBase: string = "Titillium Web";
+
+// Typography Styles
+interface IFont {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: string;
+    letterSpacing: string;
+    fontStyle: string;
+    color: string;
+    fontFamily: string;
+}
+
+export const TextSmallFont: IFont = {
+    fontSize: "15px",
+    fontWeight: 400,
+    lineHeight: "24px",
+    letterSpacing: "0.25px",
+    fontStyle: "normal",
+    color: ColorPureBlack,
+    fontFamily: FontBase,
+};
+
