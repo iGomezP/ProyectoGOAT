@@ -8,7 +8,7 @@ import { Typography } from "../OuiCatalog/Display/displayIndex";
 import { TextField } from "../OuiCatalog/Inputs/inputsIndex";
 import { TextSmallFont, TextTitleFont, TextWhiteFontBold } from "../OuiCatalog/Theme";
 import { Button } from "../OuiCatalog/Buttons/indexButtons";
-//import loginServices from "../services/login.service";
+//import userServices from "../services/user.service";
 
 const Login = () => {
     const initialValues: User = {
@@ -21,7 +21,7 @@ const Login = () => {
         console.log(data);
         if (data) {
 
-            //await loginServices.login(data);
+            //await userServices.login(data);
         }
     };
     const {
