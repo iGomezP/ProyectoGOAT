@@ -39,7 +39,7 @@ const Login = () => {
         onSubmit,
     });
     return (
-        <div>
+        <>
             <Box
                 className="flex justify-center flex-col gap-1 items-center login"
             >
@@ -64,7 +64,7 @@ const Login = () => {
                         }}
                         component="form"
                         onSubmit={handleSubmit}
-                        className="border-solid border-2"
+                        className="border-solid border-black border-2"
                     >
                         <Typography sx={TextTitleFont} className="text-center">Bienvenido a SDE</Typography>
                         <Typography sx={TextSmallFont} style={{ marginTop: "10px" }}>Usuario:</Typography>
@@ -104,7 +104,7 @@ const Login = () => {
                 </Box>
 
             </Box>
-        </div>
+        </>
     )
 }
 
