@@ -1,11 +1,11 @@
 export const PlatformBackgroundColor: string = "#f7f7fc";
 
 // Pallete colors
-export const ColorPinkDark: string = "#840A36";
+export const ColorPinkDark: string = "#C6188A";
 export const ColorGrayDark: string = "#A0A3BD";
 export const ColorGrayDark2: string = "#5D6A72";
 
-export const ColorPink: string = "#E5105D";
+export const ColorPink: string = "#E637A9";
 export const ColorGray: string = "#B7BBBC";
 export const ColorOrange: string = "#FF8F15";
 export const ColorYellow: string = "#FFCB15";
@@ -34,6 +34,7 @@ export const ColorSuccess: string = "#00CC67";
 export const ColorSuccessLight: string = "#E5FFF2";
 
 export const FontBase: string = "Titillium Web";
+export const FontSecondary: string = "Titan One"
 
 // Typography Styles
 interface IFont {
@@ -56,3 +57,32 @@ export const TextSmallFont: IFont = {
     fontFamily: FontBase,
 };
 
+export const TextTitleFont: IFont = {
+    fontSize: "24px",
+    fontWeight: 700,
+    lineHeight: "32px",
+    letterSpacing: "1px",
+    fontStyle: "normal",
+    color: ColorPureBlack,
+    fontFamily: FontBase,
+};
+
+export const TextWhiteFontBold: IFont = {
+    fontSize: "40px",
+    fontWeight: 400,
+    lineHeight: "35px",
+    letterSpacing: "0.75px",
+    fontStyle: "normal",
+    color: ColorWhite,
+    fontFamily: FontSecondary,
+};
+
+export const LinkSmallFont: IFont = {
+    fontSize: "15px",
+    fontWeight: 600,
+    lineHeight: "24px" /* 160% */,
+    letterSpacing: "0.75px",
+    fontStyle: "normal",
+    color: ColorPureBlack,
+    fontFamily: FontBase,
+};

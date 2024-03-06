@@ -1,7 +1,8 @@
 import { Box, Card, Stack } from "@mui/material";
 import { TextField } from "./Inputs/inputsIndex";
-import Typography from "./Display/Typograhpy";
+import { Typography } from "./Display/displayIndex";
 import { TextSmallFont } from "./Theme";
+import { Button } from "./Buttons/indexButtons"
 
 const OuiCatalog = () => {
 
@@ -12,6 +13,7 @@ const OuiCatalog = () => {
             </Typography>
             <InputDemo></InputDemo>
             <TypographyDemo></TypographyDemo>
+            <ButtonsDemo></ButtonsDemo>
         </Box>
     )
 }
@@ -47,6 +49,21 @@ const TypographyDemo = () => {
                 </Stack>
             </Card>
         </>)
+}
+
+const ButtonsDemo = () => {
+    return (
+        <>
+            <Typography textAlign="left" variant="h2" className="w-full">
+                ✅ Button
+            </Typography>
+            <Card raised className="w-full p-2 mb-3">
+                <Stack spacing={2}>
+                    <Button variant="contained">Contained</Button>
+                </Stack>
+            </Card>
+        </>
+    )
 }
 
 export default OuiCatalog;
