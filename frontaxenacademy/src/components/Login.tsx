@@ -12,7 +12,9 @@ const Index = () => {
                     borderRadius: 8,
                     marginBottom: "24px",
                 }}
-            />
+            >
+                Hello
+            </Paper>
         </>
     )
 }
