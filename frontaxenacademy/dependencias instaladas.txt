@@ -1,3 +1,11 @@
+dependencias instaladas:
+npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+npm i react-router-dom
+npm install -D tailwindcss postcss autoprefixer
+npm install --save react-toastify
+
+
+tsconfig.json
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -32,4 +40,25 @@
       "path": "./tsconfig.node.json"
     }
   ]
+}
+
+.eslintrc.js
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
 }

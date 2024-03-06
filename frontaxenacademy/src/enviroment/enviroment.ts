@@ -1,5 +1,5 @@
 export const Enviroment = {
-    apiUsers: '/users',
+    apiUsers: '/api/users',
 };
 //'https://bulkuploadstests.azurewebsites.net';//
 export const API_URL = import.meta.env.VITE_APP_API_URL;

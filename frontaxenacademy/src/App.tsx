@@ -4,6 +4,9 @@ import Login from './components/Admin/Login'
 import Register from './components/Admin/Register';
 import Index from './components/General/Index';
 import OuiCatalog from './components/OuiCatalog/OuiCatalog';
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './assets/styles/custom-toast-container.css';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +25,15 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        transition={Bounce}
+        closeButton={false}
+        limit={3}
+      />
     </>
   )
 }

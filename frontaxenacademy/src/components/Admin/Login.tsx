@@ -9,6 +9,7 @@ import { TextField } from "../OuiCatalog/Inputs/inputsIndex";
 import { TextSmallFont, TextTitleFont, TextWhiteFontBold } from "../OuiCatalog/Theme";
 import { Button } from "../OuiCatalog/Buttons/indexButtons";
 import userServices from "../services/user.service";
+import { IToastMessage, showToast } from "../OuiCatalog/Feedback/CustomToast";
 
 const Login = () => {
     const initialValues: User = {
@@ -16,11 +17,44 @@ const Login = () => {
         email: '',
         password: '',
     };
+
+    const toastMessage: IToastMessage = {
+        message: '',
+        severity: 'info',
+        autoHideDuration: 4000
+    }
+
     const onSubmit = async (data: User) => {
         //do something...
         console.log(data);
         if (data) {
-            await userServices.login(data);
+            const loginResponse = await userServices.login(data);
+
+            if ('error' in loginResponse) {
+                const { message } = loginResponse.error;
+                toastMessage.message = message;
+                toastMessage.severity = 'error';
+
+                showToast(toastMessage);
+            } else {
+                const { nickname } = loginResponse;
+                const welcomeMessage = `Bienvenido ${nickname}`;
+                toastMessage.message = welcomeMessage;
+                toastMessage.severity = 'success';
+                setFieldValue("nickname", '');
+                setFieldValue("email", '');
+                setFieldValue("password", '');
+                setFieldTouched("nickname", false)
+                setFieldTouched("email", false)
+                setFieldTouched("password", false)
+                data = {
+                    email: '',
+                    nickname: '',
+                    password: ''
+                }
+
+                showToast(toastMessage);
+            }
         }
     };
     const {
@@ -28,6 +62,8 @@ const Login = () => {
         handleChange,
         errors,
         values,
+        setFieldValue,
+        setFieldTouched
     } = useFormik({
         initialValues,
         validationSchema: Yup.object({
