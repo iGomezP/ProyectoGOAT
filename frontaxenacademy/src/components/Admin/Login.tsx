@@ -10,6 +10,7 @@ import { TextSmallFont, TextTitleFont, TextWhiteFontBold } from "../OuiCatalog/T
 import { Button } from "../OuiCatalog/Buttons/indexButtons";
 import userServices from "../services/user.service";
 import { IToastMessage, showToast } from "../OuiCatalog/Feedback/CustomToast";
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const initialValues: User = {
@@ -24,6 +25,8 @@ const Login = () => {
         autoHideDuration: 4000
     }
 
+    const navigate = useNavigate();
+
     const onSubmit = async (data: User) => {
         //do something...
         console.log(data);
@@ -37,7 +40,8 @@ const Login = () => {
 
                 showToast(toastMessage);
             } else {
-                const { nickname } = loginResponse;
+                const { nickname, email } = loginResponse;
+                localStorage.setItem("userEmail", email);
                 const welcomeMessage = `Bienvenido ${nickname}`;
                 toastMessage.message = welcomeMessage;
                 toastMessage.severity = 'success';
@@ -54,9 +58,15 @@ const Login = () => {
                 }
 
                 showToast(toastMessage);
+                navigate("/index");
             }
         }
     };
+
+    const handleRegister = () => {
+        navigate("/register")
+    }
+
     const {
         handleSubmit,
         handleChange,
@@ -129,12 +139,22 @@ const Login = () => {
                             error={!!errors.password}
                             className="w-full"
                         />
-                        <Button
-                            type="submit"
-                            sx={{ marginTop: "15px" }}
-                        >
-                            Iniciar sesión
-                        </Button>
+                        <Box className="flex gap-4">
+                            <Button
+                                variant="outlined"
+                                type="submit"
+                                sx={{ marginTop: "15px" }}
+                                onClick={handleRegister}
+                            >
+                                Regístrate
+                            </Button>
+                            <Button
+                                type="submit"
+                                sx={{ marginTop: "15px" }}
+                            >
+                                Iniciar sesión
+                            </Button>
+                        </Box>
                     </Paper>
                 </Box>
 

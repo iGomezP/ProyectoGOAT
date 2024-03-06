@@ -8,6 +8,7 @@ import { Typography } from "../OuiCatalog/Display/displayIndex";
 import { TextField } from "../OuiCatalog/Inputs/inputsIndex";
 import { TextSmallFont, TextTitleFont, TextWhiteFontBold } from "../OuiCatalog/Theme";
 import { Button } from "../OuiCatalog/Buttons/indexButtons";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const initialValues: UserRegistration = {
@@ -16,6 +17,9 @@ const Register = () => {
         password: '',
         pwd_check: '',
     };
+
+    const navigate = useNavigate();
+
     const onSubmit = async (data: UserRegistration) => {
         //do something...
         console.log(data);
@@ -23,6 +27,11 @@ const Register = () => {
             //await userServices.register(data);
         }
     };
+
+    const handleLogin = () => {
+        navigate("/")
+    }
+
     const {
         handleSubmit,
         handleChange,
@@ -103,10 +112,18 @@ const Register = () => {
                             error={!!errors.pwd_check}
                             className="w-full"
                         />
-                        <Button
-                            type="submit"
-                            sx={{ marginTop: "15px" }}
-                        >Crear tu cuenta</Button>
+                        <Box className="flex gap-4">
+                            <Button
+                                variant="outlined"
+                                type="submit"
+                                sx={{ marginTop: "15px" }}
+                                onClick={handleLogin}
+                            >Inicia Sesión</Button>
+                            <Button
+                                type="submit"
+                                sx={{ marginTop: "15px" }}
+                            >Crear tu cuenta</Button>
+                        </Box>
                     </Paper>
                 </Box>
             </Box>
