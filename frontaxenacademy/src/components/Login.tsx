@@ -35,7 +35,7 @@ const Index = () => {
                 <TextField id="outlined-basic"  variant="outlined" />
                 <Typography>E-mail:</Typography>
                 <TextField id="outlined-basic"  variant="outlined" />
-                <Typography>Contrasena:</Typography>
+                <Typography>Contraseña:</Typography>
                 <TextField id="outlined-basic"  variant="outlined" />
                 <Button>
                     Iniciar sesion
