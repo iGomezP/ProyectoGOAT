@@ -10,6 +10,7 @@ let axiosConfig = {
     },
 };
 const login = async (request: User) : Promise<ResultObject> => {
+    console.log(`${API_URL}/${Enviroment.apiUsers}/login`,request,axiosConfig)
     const response = await axios.post<ResultObject>
     (`${API_URL}/${Enviroment.apiUsers}/login`,request,axiosConfig);
     return response.data;

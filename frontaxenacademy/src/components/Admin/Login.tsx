@@ -8,20 +8,19 @@ import { Typography } from "../OuiCatalog/Display/displayIndex";
 import { TextField } from "../OuiCatalog/Inputs/inputsIndex";
 import { TextSmallFont, TextTitleFont, TextWhiteFontBold } from "../OuiCatalog/Theme";
 import { Button } from "../OuiCatalog/Buttons/indexButtons";
-//import userServices from "../services/user.service";
+import userServices from "../services/user.service";
 
 const Login = () => {
     const initialValues: User = {
-        user: '',
+        nickname: '',
         email: '',
-        pwd: '',
+        password: '',
     };
     const onSubmit = async (data: User) => {
         //do something...
         console.log(data);
         if (data) {
-
-            //await userServices.login(data);
+            await userServices.login(data);
         }
     };
     const {
@@ -32,9 +31,9 @@ const Login = () => {
     } = useFormik({
         initialValues,
         validationSchema: Yup.object({
-            user: Yup.string().required("Este campo es requerido."),
+            nickname: Yup.string().required("Este campo es requerido."),
             email: Yup.string().email().required('Seleccione un email valido.'),
-            pwd: Yup.string().required('Este campo es requerido.'),
+            password: Yup.string().required('Este campo es requerido.'),
         }),
         onSubmit,
     });
@@ -69,11 +68,11 @@ const Login = () => {
                         <Typography sx={TextTitleFont} className="text-center">Bienvenido a SDE</Typography>
                         <Typography sx={TextSmallFont} style={{ marginTop: "10px" }}>Usuario:</Typography>
                         <TextField id="outlined-basic" label="Alumna/o" variant="outlined"
-                            name="user"
-                            value={values.user}
+                            name="nickname"
+                            value={values.nickname}
                             onChange={handleChange}
-                            helperText={errors.user}
-                            error={!!errors.user}
+                            helperText={errors.nickname}
+                            error={!!errors.nickname}
                             className="w-full"
                         />
                         <Typography sx={TextSmallFont} style={{ marginTop: "10px" }}>E-mail:</Typography>
@@ -87,11 +86,11 @@ const Login = () => {
                         />
                         <Typography sx={TextSmallFont} style={{ marginTop: "10px" }}>Contraseña:</Typography>
                         <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password"
-                            name="pwd"
-                            value={values.pwd}
+                            name="password"
+                            value={values.password}
                             onChange={handleChange}
-                            helperText={errors.pwd}
-                            error={!!errors.pwd}
+                            helperText={errors.password}
+                            error={!!errors.password}
                             className="w-full"
                         />
                         <Button
