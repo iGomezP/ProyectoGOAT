@@ -41,7 +41,11 @@ const Login = () => {
                 showToast(toastMessage);
             } else {
                 const { nickname, email } = loginResponse;
-                localStorage.setItem("userEmail", email);
+                const userData = {
+                    userEmail: email,
+                    userNickname: nickname
+                }
+                localStorage.setItem("userData", JSON.stringify(userData));
                 const welcomeMessage = `Bienvenido ${nickname}`;
                 toastMessage.message = welcomeMessage;
                 toastMessage.severity = 'success';
@@ -86,7 +90,7 @@ const Login = () => {
     return (
         <>
             <Box
-                className="flex justify-center flex-col gap-1 items-center login"
+                className="flex justify-center flex-col gap-1 items-center custom-background-login"
             >
                 <Box className="flex flex-col items-center">
                     <img

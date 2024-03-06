@@ -3,5 +3,5 @@ interface UserRegistration {
     email: string,
     password: string,
     pwd_check: string,
-};
+}
 export default UserRegistration;

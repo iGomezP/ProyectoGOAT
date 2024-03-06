@@ -1,0 +1,11 @@
+.top-logo-icon {
+    max-width: 39px;
+    max-height: 39px;
+}
+
+.top-logo-circle {
+    width: 13px;
+    height: 13px;
+    background-color: #10D8E5;
+    border-radius: 50%;
+}

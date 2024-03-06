@@ -1,4 +1,8 @@
-@import 'styles/Login.css';
+@import '/src/styles.css';
+@import '/src/assets/styles/Login.css';
+@import '/src/assets/styles/custom-icons.css';
+@import '/src/assets/styles/custom-top-logo.css';
+@import '/src/assets/styles/custom-top-bar.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

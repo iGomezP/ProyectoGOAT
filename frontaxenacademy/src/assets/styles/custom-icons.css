@@ -1,0 +1,9 @@
+.all-icons {
+    max-width: 38px;
+    max-height: 38px;
+}
+
+.isActive {
+    background-color: #FDFEFF;
+    border: solid 1px #000;
+}
