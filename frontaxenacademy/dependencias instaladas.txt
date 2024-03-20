@@ -4,6 +4,9 @@ npm i react-router-dom
 npm install -D tailwindcss postcss autoprefixer
 npm install --save react-toastify
 
+user-test
+sergio@test.com
+1234
 
 tsconfig.json
 {
